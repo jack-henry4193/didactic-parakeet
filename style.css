@@ -1,12 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&display=swap');
+
+/*font-family: 'Inconsolata', monospace;*/
+
 html{
-  background-color: black;
+  background-color: skyblue;
 }
 
 .strong{
+  background-color: blue
   color: white;
   font-size: 70px
 }
 
 .main{
   display: inline;
+}
+
+#buttonplace{
+  position:absolute;
+  top:900px;
+  right:20px;
+}
+
+.clock{
+  font-family: 'Inconsolata', monospace;
+  font-size: 70px;
+  position:absolute;
+  top:400px;
+  right:300px;
 }
