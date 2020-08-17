@@ -2,7 +2,11 @@ html{
   background-color: black;
 }
 
-.main{
+.strong{
   color: white;
   font-size: 70px
+}
+
+.main{
+  display: inline;
 }
