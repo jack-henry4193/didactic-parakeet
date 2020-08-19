@@ -2,30 +2,61 @@
 
 /*font-family: 'Inconsolata', monospace;*/
 
-html{
-  background-color: skyblue;
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
-.strong{
-  background-color: blue
-  color: white;
-  font-size: 70px
+html {
+    background-color: skyblue;
 }
 
-.main{
-  display: inline;
+.strong {
+    background-color: blue;
+    color: white;
+    font-size: 70px
 }
 
-#buttonplace{
-  position:absolute;
-  top:900px;
-  right:20px;
+.main {
+    display: inline;
 }
 
-.clock{
-  font-family: 'Inconsolata', monospace;
-  font-size: 70px;
-  position:absolute;
-  top:400px;
-  right:300px;
+#buttonplace {
+    position: absolute;
+    top: 90%;
+    right: 15%;
+}
+
+.d {
+    position: absolute;
+    width: 200px;
+    height: 80px;
+    top: 12%;
+    right: 70%;
+}
+
+.clock {
+    font-family: 'Inconsolata', monospace;
+    font-size: 70px;
+    position: absolute;
+    top: 0%;
+    right: 27%;
+}
+
+.ap {
+    font-family: 'Inconsolata';
+    font-size: 38px;
+    position: absolute;
+    top: 35%;
+    right: 4%;
+}
+
+.date {
+    font-family: 'Inconsolata', monospace;
+    font-size: 30px;
+    position: absolute;
+    top: 18%;
+    right: 70%;
+
 }
