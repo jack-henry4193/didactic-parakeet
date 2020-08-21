@@ -30,10 +30,10 @@ html {
 
 .d {
     position: absolute;
-    width: 200px;
-    height: 80px;
-    top: 12%;
-    right: 70%;
+    width: 330px;
+    height: 120px;
+    top: 9%;
+    right: 75%;
 }
 
 .clock {
@@ -41,22 +41,24 @@ html {
     font-size: 70px;
     position: absolute;
     top: 0%;
-    right: 27%;
+    right: 55%;
 }
 
 .ap {
     font-family: 'Inconsolata';
     font-size: 38px;
     position: absolute;
-    top: 35%;
-    right: 4%;
+    top: 20%;
+    right: 40%;
 }
 
 .date {
     font-family: 'Inconsolata', monospace;
     font-size: 30px;
+    width: 290px;
+    height: 35px;
     position: absolute;
-    top: 18%;
-    right: 70%;
+    top: 60%;
+    right: 6%;
 
 }

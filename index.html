@@ -4,16 +4,19 @@
 <link href="style.css" rel="stylesheet">
 
 <head>
-    <script type="text/javascript" src="main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body onload="startTime();getdate()">
 
     <button onclick="openFullscreen()" ; id="buttonplace">Open Fullscreen</button>
+    <button class="speak">Press to Speak</button>
     <div class="d">
         <div id="clk" class="clock"></div>
         <div id="ap" class="ap"></div>
+        <div id="dat" class="date"></div>
     </div>
-    <div id="dat" class="date"></div>
+    <script type="text/javascript" src="main.js"></script>
+</body>
 
-</body></html>
+</html>

@@ -36,6 +36,7 @@ function closeFullscreen() {
 
 /*-----------------------------------------------------*/
 
+/* Time */
 
 function startTime() {
     var today = new Date();
@@ -63,12 +64,39 @@ function checkTime(i) {
 
 /*-----------------------------------------------------*/
 
+/* Date */
+
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
 function getdate() {
     var d = new Date();
-    var mont = days [ d.getMonth() ];
-    var dat = d.getDate;
-    var day = months [ d.getDay() ];
-    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-    document.getElementById("dat").innerHTML = dat;
-}
+    var month = months[d.getMonth()];
+    var date = d.getDate();
+    var day = days[d.getDay()];
+    document.getElementById('dat').innerHTML = (day + "," + month + " " + date);
+};
+
+var x = setTimeout(getdate(), 3600000);
+
+
+/*---------------------------------------------------*/
+
+/* Virtual Assistant */
+
+const btn = document.querySelector('.speak');
+
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = new SpeechRecognition();
+recognition.start();
+
+function listen() {
+    recognition.addEventListener('soundstart', function() { 
+        recognition.onresult = function (event) {
+            console.log(event);
+        }
+    });
+};
+
+setInterval(listen(), 5000);
+
