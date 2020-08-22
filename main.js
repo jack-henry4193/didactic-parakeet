@@ -82,21 +82,3 @@ var x = setTimeout(getdate(), 3600000);
 
 /*---------------------------------------------------*/
 
-/* Virtual Assistant */
-
-const btn = document.querySelector('.speak');
-
-const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-const recognition = new SpeechRecognition();
-recognition.start();
-
-function listen() {
-    recognition.addEventListener('soundstart', function() { 
-        recognition.onresult = function (event) {
-            console.log(event);
-        }
-    });
-};
-
-setInterval(listen(), 5000);
-
