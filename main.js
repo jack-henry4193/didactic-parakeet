@@ -17,22 +17,15 @@ function openFullscreen() {
     }
 }
 
-/* Close fullscreen */
-function closeFullscreen() {
-    if (document.exitFullscreen) {
-        document.exitFullscreen();
-    } else if (document.mozCancelFullScreen) {
-        /* Firefox */
-        document.mozCancelFullScreen();
-    } else if (document.webkitExitFullscreen) {
-        /* Chrome, Safari and Opera */
-        document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) {
-        /* IE/Edge */
-        document.msExitFullscreen();
+window.addEventListener("keydown", checkKeyPressed, false);
+
+function checkKeyPressed(evt) {
+    if (evt.keyCode == "70") {
+        openFullscreen();
+    } else {
+
     }
 }
-
 
 /*----------------------------------------------------*/
 
@@ -74,11 +67,47 @@ function getdate() {
     var month = months[d.getMonth()];
     var date = d.getDate();
     var day = days[d.getDay()];
-    document.getElementById('dat').innerHTML = (day + "," + month + " " + date);
+    document.getElementById('dat').innerHTML = (day + ", " + month + " " + date);
 };
 
 var x = setTimeout(getdate(), 3600000);
 
 
 /*---------------------------------------------------*/
+
+/*weather*/
+
+var long;
+var lat;
+
+window.addEventListener('load', () => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+            long = position.coords.longitude;
+            lat = position.coords.latitude;
+        });
+    }
+var key = 'e265de32d5883ec3609745c6b02072b3'
+fetch("https://api.openweathermap.org/data/2.5/onecall?lat=44.72&lon=-96.28&appid=e265de32d5883ec3609745c6b02072b3")
+    .then(response => {
+    return response.json();
+})
+    .then (data => {
+    console.log(data);
+})
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
