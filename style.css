@@ -6,139 +6,63 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    color: white;
+}
+
+body {
+    margin: 50px;
+    display: flex;
+    justify-content: space-between;
 }
 
 html {
-    background-color: skyblue;
+    background-color: black;
 }
 
-.strong {
-    background-color: blue;
-    color: white;
-    font-size: 70px
-}
-
-.main {
-    display: inline;
-}
-
-#buttonplace {
-    position: absolute;
-    top: 90%;
-    right: 15%;
-}
 
 .d {
-    position: absolute;
-    width: 330px;
-    height: 120px;
-    top: 9%;
-    right: 75%;
-}
-
-.clock {
-    font-family: 'Inconsolata', monospace;
-    font-size: 70px;
-    position: absolute;
-    top: 0%;
-    right: 55%;
-}
-
-.ap {
-    font-family: 'Inconsolata';
-    font-size: 38px;
-    position: absolute;
-    top: 20%;
-    right: 40%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 420px;
+    padding: 20px;
 }
 
 .date {
-    font-family: 'Inconsolata', monospace;
     font-size: 30px;
-    width: 290px;
-    height: 35px;
-    position: absolute;
-    top: 60%;
-    right: 6%;
-
+    letter-spacing: 4px;
+    padding-bottom: 10px;
 }
 
+.clock {
+    font-size: 90px;
+    letter-spacing: 2px;
+}
 
-/*
+.ap {
+    font-size: 40px;
+    letter-spacing: 5px;
+    margin-left: 20px;
+    align-self: flex-end;
+    margin-bottom: 20px;
+}
 
-https://www.youtube.com/watch?v=weZFfrjF-k4&t=46s
-
-.aclock {
-    width: 250px;
-    height: 250px;
-    position: absolute;
-    top: 30%;
-    right: 30%;
+#weather{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    border: 5px solid white;
+    width: 300px;
+    flex-wrap: wrap;
+    border-style: dashed;
+    justify-content: flex-end;
+    padding: 10px;
 }
-
-.aclock:before {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: white;
-    border-radius: 50%;
-    z-index: 10000;
-}
-
-.aclock .hour,
-.aclock .min,
-.aclock .sec
-{
-    position: absolute;
-}
-
-.clock .hour, .hr
-{
-    width: 100px;
-    height: 100px;
-}
-
-.clock .min, .mn
-{
-    width: 120px;
-    height: 120px;
-}
-
-.clock .sec, .sc
-{
-    width: 140px;
-    height: 140px;
-}
-
-.hr, .mn, .sc
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hr:before
-{
-    content: '';
-    position: absolute;
-    width: 8px;
-    height: 90px;
-    background: green;
-    border-color: green;
-    z-index: 10;
-    border-radius: 6px 6px 0 0;
-}
-*/
 
 .temp {
-    position: absolute;
-    top: 30%;
-    right: 30%;
-    font-size: 30px;
+    display: flex;
+    font-size: 60px;
+    width: 90px;
+    padding: 5px;
+}
+
+.icon-now {
+    display: flex;
+    margin: 10px;
 }
