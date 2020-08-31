@@ -77,37 +77,43 @@ var x = setTimeout(getdate(), 3600000);
 
 /*weather*/
 
-var long;
-var lat;
-
-window.addEventListener('load', () => {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-            long = position.coords.longitude;
-            lat = position.coords.latitude;
-        });
-    }
 var key = 'e265de32d5883ec3609745c6b02072b3'
-fetch("https://api.openweathermap.org/data/2.5/onecall?lat=44.72&lon=-96.28&appid=e265de32d5883ec3609745c6b02072b3")
-    .then(response => {
-    return response.json();
-})
-    .then (data => {
-    console.log(data);
-})
-});
 
+function getWeather() {
+    fetch("https://api.openweathermap.org/data/2.5/onecall?lat=44.72&lon=-96.28&units=imperial&appid=e265de32d5883ec3609745c6b02072b3")
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            temp = data.current.temp;
+            descrip = data.current.weather[0].description;
+            icon = data.current.weather[0].icon;
+            temp = Math.round(temp);
+            document.getElementById('tmp').innerHTML = temp;
+            document.getElementById('des').innerHTML = descrip;
+            geticon();
+            document.getElementById('icon-now').src = "/icons/" + icon + ".png";
+        });
+};
 
+function geticon() {
+    if (icon=="01d" || "01n" || "02d" || "02n" || "10d" || "10n") {
+        icon = icon;
+    }else if (icon=="03n" || "03d") {
+        icon = "03d";
+    } else if (icon=="04n" || "04d") {
+        icon = "04d";
+    } else if (icon=="09n" || "09d") {
+        icon = "09d";
+    } else if (icon=="11n" || "11d") {
+        icon = "11d";
+    } else if (icon=="13n" || "13d") {
+        icon = "13d";
+    } else {
+        icon = icon;
+    }
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
+getWeather();
+setInterval(getWeather, 1800000);
