@@ -2,6 +2,8 @@
 
 /*font-family: 'Inconsolata', monospace;*/
 
+
+
 * {
     margin: 0px;
     padding: 0px;
@@ -20,15 +22,36 @@ html {
 .main {
     display: flex;
     justify-content: space-between;
-    height: 95vh
+    height: 95vh;
+    animation-name: flicker;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+    animation-direction: linear;
+}
+
+@keyframes flicker {
+    0% {opacity: 1;}
+    49% {opacity: 1;}
+    50% {opacity: 0;}
+    51% {opacity: 1;}
+    100% {opacity: 1;}
+}
+
+.dt-n {
+    display: flex;
+    flex-direction: column;
+    height: 1000px;
 }
 
 .d {
+    width: 22vw;
+    height: 15vh;
+    order: -1;
+    margin-bottom: 80px;
+}
+
+.times {
     display: flex;
-    flex-wrap: wrap;
-    width: 420px;
-    padding: 20px;
-    height: 10vh;
 }
 
 .date {
@@ -71,7 +94,6 @@ html {
     font-size: 70px;
     width: 90px;
     margin-top: 20px;
-    height: 4vh;
     margin-right: 10px;
     font-weight: 700;
 }
@@ -134,4 +156,18 @@ html {
 .icon3 {
     margin-top: -30%;
     margin-left: 30%;
+}
+
+.notes{
+    display: flex;
+    flex-direction: column;
+    order: -1;
+}
+
+.title {
+    font-size: 30px;
+}
+
+.note1, .note2, .note3, .note4, .note5 {
+    font-size: 30px;
 }

@@ -58,9 +58,14 @@ function checkTime(i) {
 function h1() {
     var today = new Date();
     var h = today.getHours() + 2;
+    if (h == 24) {
+        h -= 12
+    } else if (h > 24) {
+        h -= 24
+    };
+    var ampm = h >= 12 ? 'pm' : 'am';
     h = h % 12;
     h = h ? h : 12;
-    var ampm = h >= 12 ? 'pm' : 'am';
     setInterval(h1, 60000);
     document.getElementById('time1').innerHTML = h + " " + ampm;
 }
@@ -70,9 +75,14 @@ h1();
 function h2() {
     var today = new Date();
     var h = today.getHours() + 4;
+    if (h == 24) {
+        h -= 12
+    } else if (h > 24) {
+        h -= 24
+    };
+    var ampm = h >= 12 ? 'pm' : 'am';
     h = h % 12;
     h = h ? h : 12;
-    var ampm = h >= 12 ? 'pm' : 'am';
     setInterval(h2, 60000);
     document.getElementById('time2').innerHTML = h + " " + ampm;
 }
@@ -82,9 +92,14 @@ h2();
 function h3() {
     var today = new Date();
     var h = today.getHours() + 6;
+    if (h == 24) {
+        h -= 12
+    } else if (h > 24) {
+        h -= 24
+    };
+    var ampm = h >= 12 ? 'pm' : 'am';
     h = h % 12;
     h = h ? h : 12;
-    var ampm = h >= 12 ? 'pm' : 'am';
     setInterval(h3, 60000);
     document.getElementById('time3').innerHTML = h + " " + ampm;
 }
@@ -122,7 +137,7 @@ function getWeather() {
             return response.json();
         })
         .then(data => {
-            console.log(data);
+            /*console.log(data);*/
             temp = data.current.temp;
             descrip = data.current.weather[0].description;
             icon = data.current.weather[0].icon;
@@ -150,3 +165,8 @@ function getWeather() {
 
 getWeather();
 setInterval(getWeather, 60000);
+
+
+/*-------------------------------------------------------*/
+
+
