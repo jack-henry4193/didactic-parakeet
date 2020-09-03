@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;900&display=swap');
 
 /*font-family: 'Inconsolata', monospace;*/
 
@@ -7,62 +7,131 @@
     padding: 0px;
     box-sizing: border-box;
     color: white;
-}
-
-body {
-    margin: 50px;
-    display: flex;
-    justify-content: space-between;
+    font-family: Rajdhani, sans-serif;
 }
 
 html {
     background-color: black;
+    height: 100%;
+    padding: 50px;
 }
 
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    height: 95vh
+}
 
 .d {
     display: flex;
     flex-wrap: wrap;
     width: 420px;
     padding: 20px;
+    height: 10vh;
 }
 
 .date {
     font-size: 30px;
     letter-spacing: 4px;
-    padding-bottom: 10px;
+    padding-bottom: 1px;
 }
 
 .clock {
     font-size: 90px;
-    letter-spacing: 2px;
+    letter-spacing: 6px;
+    font-weight: 600;
 }
 
 .ap {
     font-size: 40px;
     letter-spacing: 5px;
-    margin-left: 20px;
+    margin-left: 15px;
     align-self: flex-end;
     margin-bottom: 20px;
 }
 
-#weather{
+#weather {
     display: flex;
     width: 300px;
     flex-wrap: wrap;
-    border-style: dashed;
-    justify-content: flex-end;
     padding: 10px;
-}
-
-.temp {
-    display: flex;
-    font-size: 60px;
-    width: 90px;
-    padding: 5px;
+    height: 40vh;
+    align-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .icon-now {
-    display: flex;
-    margin: 10px;
+    height: 120px;
+    margin-left: 40px;
+}
+
+.temp {
+    font-size: 70px;
+    width: 90px;
+    margin-top: 20px;
+    height: 4vh;
+    margin-right: 10px;
+    font-weight: 700;
+}
+
+.descrip {
+    height: 50px;
+    font-size: 30px;
+    margin-top: -5%;
+}
+
+.time1 {
+    font-size: 20px;
+    margin-top: 20%;
+    margin-left: 70%;
+}
+
+.forcast1 {
+    font-size: 40px;
+    margin-left: 70%;
+    margin-top: 3%;
+    font-weight: 700;
+}
+
+.icon1 {
+    margin-top: -30%;
+    margin-left: 30%;
+}
+
+.time2 {
+    font-size: 20px;
+    margin-top: 20%;
+    margin-left: 70%;
+}
+
+.forcast2 {
+    font-size: 40px;
+    margin-left: 70%;
+    margin-top: 3%;
+    font-weight: 700;
+}
+
+.icon2 {
+    margin-top: -30%;
+    margin-left: 30%;
+}
+
+.time3 {
+    font-size: 20px;
+    margin-top: 20%;
+    margin-left: 70%;
+}
+
+.forcast3 {
+    font-size: 40px;
+    margin-left: 70%;
+    margin-top: 3%;
+    font-weight: 700;
+}
+
+.icon3 {
+    margin-top: -30%;
+    margin-left: 30%;
 }
