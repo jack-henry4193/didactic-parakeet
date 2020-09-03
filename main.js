@@ -1,3 +1,4 @@
+
 /* Get the documentElement (<html>) to display the page in fullscreen */
 var elem = document.documentElement;
 
@@ -54,6 +55,42 @@ function checkTime(i) {
     return i;
 }
 
+function h1() {
+    var today = new Date();
+    var h = today.getHours() + 2;
+    h = h % 12;
+    h = h ? h : 12;
+    var ampm = h >= 12 ? 'pm' : 'am';
+    setInterval(h1, 60000);
+    document.getElementById('time1').innerHTML = h + " " + ampm;
+}
+
+h1();
+
+function h2() {
+    var today = new Date();
+    var h = today.getHours() + 4;
+    h = h % 12;
+    h = h ? h : 12;
+    var ampm = h >= 12 ? 'pm' : 'am';
+    setInterval(h2, 60000);
+    document.getElementById('time2').innerHTML = h + " " + ampm;
+}
+
+h2();
+
+function h3() {
+    var today = new Date();
+    var h = today.getHours() + 6;
+    h = h % 12;
+    h = h ? h : 12;
+    var ampm = h >= 12 ? 'pm' : 'am';
+    setInterval(h3, 60000);
+    document.getElementById('time3').innerHTML = h + " " + ampm;
+}
+
+h3();
+
 
 /*-----------------------------------------------------*/
 
@@ -68,7 +105,7 @@ function getdate() {
     var date = d.getDate();
     var day = days[d.getDay()];
     document.getElementById('dat').innerHTML = (day + ", " + month + " " + date);
-};
+}
 
 var x = setTimeout(getdate(), 3600000);
 
@@ -90,30 +127,26 @@ function getWeather() {
             descrip = data.current.weather[0].description;
             icon = data.current.weather[0].icon;
             temp = Math.round(temp);
-            document.getElementById('tmp').innerHTML = temp;
+            document.getElementById('tmp').innerHTML = temp+"°";
             document.getElementById('des').innerHTML = descrip;
-            geticon();
             document.getElementById('icon-now').src = "/icons/" + icon + ".png";
+            forcast1 = data.hourly[2].temp;
+            forcast1 = Math.round(forcast1);
+            document.getElementById('forcast1').innerHTML = forcast1 + "°";
+            forcast2 = data.hourly[4].temp;
+            forcast2 = Math.round(forcast2);
+            document.getElementById('forcast2').innerHTML = forcast2 + "°";
+            forcast3 = data.hourly[6].temp;
+            forcast3 = Math.round(forcast3);
+            document.getElementById('forcast3').innerHTML = forcast3 + "°";
+            icon1 = data.hourly[2].weather[0].icon;
+            document.getElementById('icon1').src = "/icons/" + icon1 + ".png";
+            icon2 = data.hourly[4].weather[0].icon;
+            document.getElementById('icon2').src = "/icons/" + icon2 + ".png";
+            icon3 = data.hourly[6].weather[0].icon;
+            document.getElementById('icon3').src = "/icons/" + icon3 + ".png";
         });
-};
-
-function geticon() {
-    if (icon=="01d" || "01n" || "02d" || "02n" || "10d" || "10n") {
-        icon = icon;
-    }else if (icon=="03n" || "03d") {
-        icon = "03d";
-    } else if (icon=="04n" || "04d") {
-        icon = "04d";
-    } else if (icon=="09n" || "09d") {
-        icon = "09d";
-    } else if (icon=="11n" || "11d") {
-        icon = "11d";
-    } else if (icon=="13n" || "13d") {
-        icon = "13d";
-    } else {
-        icon = icon;
-    }
-};
+}
 
 getWeather();
-setInterval(getWeather, 1800000);
+setInterval(getWeather, 60000);
