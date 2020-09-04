@@ -18,29 +18,33 @@ html {
     padding: 50px;
 }
 
+body {
+    overflow: hidden;
+}
 
 .main {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    height: 95vh;
-    animation-name: flicker;
-    animation-duration: 60s;
+    height: 60vh;
+    animation-name: burnin;
+    animation-duration: 120s;
     animation-iteration-count: infinite;
     animation-direction: linear;
 }
 
-@keyframes flicker {
+@keyframes burnin {
     0% {opacity: 1;}
-    49% {opacity: 1;}
-    50% {opacity: 0;}
-    51% {opacity: 1;}
-    100% {opacity: 1;}
+    94% { opacity: 1;}
+    95% {opacity: 0;}
+    100% {opacity: 0;}
 }
+
 
 .dt-n {
     display: flex;
     flex-direction: column;
-    height: 1000px;
+    height: 90vh;
 }
 
 .d {
@@ -170,4 +174,21 @@ html {
 
 .note1, .note2, .note3, .note4, .note5 {
     font-size: 30px;
+}
+
+.stock {
+    display: flex;
+    margin-top: auto;
+    order: -1;
+    height: 5vh;
+    width: 50vw;
+    letter-spacing: 1px;
+}
+
+.stock1 {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    line-height: 25px;
+    justify-content: space-between;
 }
