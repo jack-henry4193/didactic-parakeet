@@ -260,5 +260,5 @@ function getStock() {
 }
 
 getStock();
-setInterval(getStock(), 60100);
+setInterval(getStock(), 240000);
 
