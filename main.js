@@ -128,10 +128,10 @@ var x = setTimeout(getdate(), 3600000);
 
 /*weather*/
 
-var key = 'e265de32d5883ec3609745c6b02072b3'
+var weth_key = 'e265de32d5883ec3609745c6b02072b3'
 
 function getWeather() {
-    fetch("https://api.openweathermap.org/data/2.5/onecall?lat=44.72&lon=-96.28&units=imperial&appid=e265de32d5883ec3609745c6b02072b3")
+    fetch("https://api.openweathermap.org/data/2.5/onecall?lat=44.72&lon=-96.28&units=imperial&appid=" + weth_key)
         .then(response => {
             return response.json();
         })
