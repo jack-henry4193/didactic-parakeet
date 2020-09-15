@@ -1,5 +1,9 @@
 # didactic-parakeet
-web page based smart mirror
+A web-based smart mirror that runs local host.
+---
+**Version 1.0.0**
 
-used as a learning project for html, css, and javascript
+###Licence & copyright
+
+© Jack H Nemitz, updated 2020
 
