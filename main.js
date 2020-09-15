@@ -184,10 +184,16 @@ function getStock() {
             price = Math.round(price * 100) / 100;
             chg = data["Global Quote"]["09. change"]
             chg = Math.round(chg * 100) / 100;
+            fchg = Math.sign(chg);
+            if (fchg < 0) {
+                document.getElementById("1").style.color = "red";
+            } else {
+                document.getElementById("1").style.color = "chartreuse";
+            }
             pchg = data["Global Quote"]["10. change percent"]
             pchg = String(pchg).substring(0, 6);
             pchg = Math.round(parseFloat(pchg) * 100) / 100;
-            document.getElementById('1').innerHTML = symbol + ' ' + price + ' ' + chg + ' ' + pchg + '%';
+            document.getElementById('1').innerHTML = symbol + '  ' + price + ' ' + chg + ' ' + pchg + '%';
         });
     symbol2 = "TSLA"
     fetch("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol2 + "&apikey=" + AV_key)
@@ -201,10 +207,16 @@ function getStock() {
             price = Math.round(price * 100) / 100;
             chg = data["Global Quote"]["09. change"]
             chg = Math.round(chg * 100) / 100;
+            fchg = Math.sign(chg);
+            if (fchg < 0) {
+                document.getElementById("2").style.color = "red";
+            } else {
+                document.getElementById("2").style.color = "chartreuse";
+            }
             pchg = data["Global Quote"]["10. change percent"]
             pchg = String(pchg).substring(0, 6);
             pchg = Math.round(parseFloat(pchg) * 100) / 100;
-            document.getElementById('2').innerHTML = symbol + ' ' + price + ' ' + chg + ' ' + pchg + '%';
+            document.getElementById('2').innerHTML = symbol + '  ' + price + ' ' + chg + ' ' + pchg + '%';
         });
     symbol3 = "AMZN"
     fetch("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol3 + "&apikey=" + AV_key)
@@ -218,10 +230,16 @@ function getStock() {
             price = Math.round(price * 100) / 100;
             chg = data["Global Quote"]["09. change"]
             chg = Math.round(chg * 100) / 100;
+            fchg = Math.sign(chg);
+            if (fchg < 0) {
+                document.getElementById("3").style.color = "red";
+            } else {
+                document.getElementById("3").style.color = "chartreuse";
+            }
             pchg = data["Global Quote"]["10. change percent"]
             pchg = String(pchg).substring(0, 6);
             pchg = Math.round(parseFloat(pchg) * 100) / 100;
-            document.getElementById('3').innerHTML = symbol + ' ' + price + ' ' + chg + ' ' + pchg + '%';
+            document.getElementById('3').innerHTML = symbol + '  ' + price + ' ' + chg + ' ' + pchg + '%';
         });
     symbol4 = "MSFT"
     fetch("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol4 + "&apikey=" + AV_key)
@@ -235,10 +253,16 @@ function getStock() {
             price = Math.round(price * 100) / 100;
             chg = data["Global Quote"]["09. change"]
             chg = Math.round(chg * 100) / 100;
+            fchg = Math.sign(chg);
+            if (fchg < 0) {
+                document.getElementById("4").style.color = "red";
+            } else {
+                document.getElementById("4").style.color = "chartreuse";
+            }
             pchg = data["Global Quote"]["10. change percent"]
             pchg = String(pchg).substring(0, 6);
             pchg = Math.round(parseFloat(pchg) * 100) / 100;
-            document.getElementById('4').innerHTML = symbol + ' ' + price + ' ' + chg + ' ' + pchg + '%';
+            document.getElementById('4').innerHTML = symbol + '  ' + price + ' ' + chg + ' ' + pchg + '%';
         });
     symbol5 = "NDAQ"
     fetch("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol5 + "&apikey=" + AV_key)
@@ -252,13 +276,18 @@ function getStock() {
             price = Math.round(price * 100) / 100;
             chg = data["Global Quote"]["09. change"]
             chg = Math.round(chg * 100) / 100;
+            fchg = Math.sign(chg);
+            if (fchg < 0) {
+                document.getElementById("5").style.color = "red";
+            } else {
+                document.getElementById("5").style.color = "chartreuse";
+            }
             pchg = data["Global Quote"]["10. change percent"]
             pchg = String(pchg).substring(0, 6);
             pchg = Math.round(parseFloat(pchg) * 100) / 100;
-            document.getElementById('5').innerHTML = symbol + ' ' + price + ' ' + chg + ' ' + pchg + '%';
+            document.getElementById('5').innerHTML = symbol + '  ' + price + ' ' + chg + ' ' + pchg + '%';
         });
 }
 
 getStock();
 setInterval(getStock(), 240000);
-
