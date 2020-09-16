@@ -170,4 +170,11 @@ getStock("TSLA", '2');
 getStock("AMZN", '3');
 getStock("MSFT", '4');
 getStock("NDAQ", '5');
-setInterval(getStock(), 240000);
+setInterval(getStock("AAPL", '1'), 240000);
+setInterval(getStock("TSLA", '2'), 240000);
+setInterval(getStock("AMZN", '3'), 240000);
+setInterval(getStock("MSFT", '4'), 240000);
+setInterval(getStock("NDAQ", '5'), 240000);
+
+
+
