@@ -146,7 +146,7 @@ function getStock(symbol, id) {
             return response.json();
         })
         .then(data => {
-            console.log(data);
+            /*console.log(data);*/
             symbol = data["Global Quote"]["01. symbol"]
             price = data["Global Quote"]["05. price"]
             price = Math.round(price * 100) / 100;
