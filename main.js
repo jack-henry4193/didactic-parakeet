@@ -54,9 +54,9 @@ function checkTime(i) {
     return i;
 }
 
-function h1() {
+function forcast_hour(add, id) {
     var today = new Date();
-    var h = today.getHours() + 2;
+    var h = today.getHours() + add;
     if (h == 24) {
         h -= 12
     } else if (h > 24) {
@@ -65,45 +65,13 @@ function h1() {
     var ampm = h >= 12 ? 'pm' : 'am';
     h = h % 12;
     h = h ? h : 12;
-    setInterval(h1, 60000);
-    document.getElementById('time1').innerHTML = h + " " + ampm;
+    setInterval(forcast_hour, 60000);
+    document.getElementById(id).innerHTML = h + " " + ampm;
 }
 
-h1();
-
-function h2() {
-    var today = new Date();
-    var h = today.getHours() + 4;
-    if (h == 24) {
-        h -= 12
-    } else if (h > 24) {
-        h -= 24
-    };
-    var ampm = h >= 12 ? 'pm' : 'am';
-    h = h % 12;
-    h = h ? h : 12;
-    setInterval(h2, 60000);
-    document.getElementById('time2').innerHTML = h + " " + ampm;
-}
-
-h2();
-
-function h3() {
-    var today = new Date();
-    var h = today.getHours() + 6;
-    if (h == 24) {
-        h -= 12
-    } else if (h > 24) {
-        h -= 24
-    };
-    var ampm = h >= 12 ? 'pm' : 'am';
-    h = h % 12;
-    h = h ? h : 12;
-    setInterval(h3, 60000);
-    document.getElementById('time3').innerHTML = h + " " + ampm;
-}
-
-h3();
+forcast_hour(2, 'time1');
+forcast_hour(4, 'time2');
+forcast_hour(6, 'time3');
 
 
 /*-----------------------------------------------------*/
@@ -171,9 +139,8 @@ setInterval(getWeather, 60000);
 const Fin_key = "bt8q75f48v6ulu345cig"
 const AV_key = "FASLSWE4EQRXW4OT"
 
-function getStock() {
-    symbol1 = "AAPL"
-    fetch("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol1 + "&apikey=" + AV_key)
+function getStock(symbol, id) {
+    fetch("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol + "&apikey=" + AV_key)
         .then(response => {
             return response.json();
         })
@@ -186,108 +153,20 @@ function getStock() {
             chg = Math.round(chg * 100) / 100;
             fchg = Math.sign(chg);
             if (fchg < 0) {
-                document.getElementById("1").style.color = "red";
+                document.getElementById(id).style.color = "red";
             } else {
-                document.getElementById("1").style.color = "chartreuse";
+                document.getElementById(id).style.color = "chartreuse";
             }
             pchg = data["Global Quote"]["10. change percent"]
             pchg = String(pchg).substring(0, 6);
             pchg = Math.round(parseFloat(pchg) * 100) / 100;
-            document.getElementById('1').innerHTML = symbol + '  ' + price + ' ' + chg + ' ' + pchg + '%';
-        });
-    symbol2 = "TSLA"
-    fetch("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol2 + "&apikey=" + AV_key)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            console.log(data);
-            symbol = data["Global Quote"]["01. symbol"]
-            price = data["Global Quote"]["05. price"]
-            price = Math.round(price * 100) / 100;
-            chg = data["Global Quote"]["09. change"]
-            chg = Math.round(chg * 100) / 100;
-            fchg = Math.sign(chg);
-            if (fchg < 0) {
-                document.getElementById("2").style.color = "red";
-            } else {
-                document.getElementById("2").style.color = "chartreuse";
-            }
-            pchg = data["Global Quote"]["10. change percent"]
-            pchg = String(pchg).substring(0, 6);
-            pchg = Math.round(parseFloat(pchg) * 100) / 100;
-            document.getElementById('2').innerHTML = symbol + '  ' + price + ' ' + chg + ' ' + pchg + '%';
-        });
-    symbol3 = "AMZN"
-    fetch("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol3 + "&apikey=" + AV_key)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            console.log(data);
-            symbol = data["Global Quote"]["01. symbol"]
-            price = data["Global Quote"]["05. price"]
-            price = Math.round(price * 100) / 100;
-            chg = data["Global Quote"]["09. change"]
-            chg = Math.round(chg * 100) / 100;
-            fchg = Math.sign(chg);
-            if (fchg < 0) {
-                document.getElementById("3").style.color = "red";
-            } else {
-                document.getElementById("3").style.color = "chartreuse";
-            }
-            pchg = data["Global Quote"]["10. change percent"]
-            pchg = String(pchg).substring(0, 6);
-            pchg = Math.round(parseFloat(pchg) * 100) / 100;
-            document.getElementById('3').innerHTML = symbol + '  ' + price + ' ' + chg + ' ' + pchg + '%';
-        });
-    symbol4 = "MSFT"
-    fetch("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol4 + "&apikey=" + AV_key)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            console.log(data);
-            symbol = data["Global Quote"]["01. symbol"]
-            price = data["Global Quote"]["05. price"]
-            price = Math.round(price * 100) / 100;
-            chg = data["Global Quote"]["09. change"]
-            chg = Math.round(chg * 100) / 100;
-            fchg = Math.sign(chg);
-            if (fchg < 0) {
-                document.getElementById("4").style.color = "red";
-            } else {
-                document.getElementById("4").style.color = "chartreuse";
-            }
-            pchg = data["Global Quote"]["10. change percent"]
-            pchg = String(pchg).substring(0, 6);
-            pchg = Math.round(parseFloat(pchg) * 100) / 100;
-            document.getElementById('4').innerHTML = symbol + '  ' + price + ' ' + chg + ' ' + pchg + '%';
-        });
-    symbol5 = "NDAQ"
-    fetch("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol5 + "&apikey=" + AV_key)
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            console.log(data);
-            symbol = data["Global Quote"]["01. symbol"]
-            price = data["Global Quote"]["05. price"]
-            price = Math.round(price * 100) / 100;
-            chg = data["Global Quote"]["09. change"]
-            chg = Math.round(chg * 100) / 100;
-            fchg = Math.sign(chg);
-            if (fchg < 0) {
-                document.getElementById("5").style.color = "red";
-            } else {
-                document.getElementById("5").style.color = "chartreuse";
-            }
-            pchg = data["Global Quote"]["10. change percent"]
-            pchg = String(pchg).substring(0, 6);
-            pchg = Math.round(parseFloat(pchg) * 100) / 100;
-            document.getElementById('5').innerHTML = symbol + '  ' + price + ' ' + chg + ' ' + pchg + '%';
+            document.getElementById(id).innerHTML = symbol + '  ' + price + ' ' + chg + ' ' + pchg + '%';
         });
 }
 
-getStock();
+getStock("AAPL", '1');
+getStock("TSLA", '2');
+getStock("AMZN", '3');
+getStock("MSFT", '4');
+getStock("NDAQ", '5');
 setInterval(getStock(), 240000);
