@@ -20,6 +20,7 @@ function openFullscreen() {
 window.addEventListener("keydown", checkKeyPressed, false);
 
 function checkKeyPressed(evt) {
+    evt.keyCode = 70
     if (evt.keyCode == "70") {
         openFullscreen();
         document.getElementById('main').style.cursor = "none";
@@ -28,6 +29,11 @@ function checkKeyPressed(evt) {
     }
 }
 
+function reload() {
+    location.reload();
+    document.documentElement.requestFullscreen();
+}
+setInterval(reload, 300000);
 /*----------------------------------------------------*/
 
 /* Time */
