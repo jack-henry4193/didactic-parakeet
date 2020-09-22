@@ -33,12 +33,6 @@ function checkKeyPressed(evt) {
 
 
 
-function reload() {
-    location.reload();
-}
-setInterval(reload, 300000);
-
-
 /*----------------------------------------------------*/
 
 /* Time */
