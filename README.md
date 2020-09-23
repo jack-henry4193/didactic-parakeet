@@ -6,5 +6,5 @@
 
 ### Licence & copyright
 
-© Jack H Nemitz, updated 2020
+© Jack H. Nemitz, updated 2020
 
