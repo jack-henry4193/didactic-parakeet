@@ -1,7 +1,7 @@
 
 ### An Electron.js smart mirror.
 ---
-**Version 2.0.0**
+###Version 2.0.1
 ---
 
 ## Getting Started
