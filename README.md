@@ -1,5 +1,4 @@
-## didactic-parakeet
----
+
 ### An Electron.js smart mirror.
 ---
 **Version 2.0.0**
