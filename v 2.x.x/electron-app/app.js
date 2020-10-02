@@ -1,4 +1,15 @@
+/*Includes any external .js files specified. Call 'include(path/to/file)' function with the path to the file.*/
+function include(file) {
+    var script = document.createElement('script');
+    script.src = file;
+    script.type = 'text/javascript';
+    script.defer = true;
+    document.getElementsByTagName('head').item(0).appendChild(script);
+}
 
+include("./app_config.js");
+
+/*----------------------------------------------------------*/
 
 /* Get the documentElement (<html>) to display the page in fullscreen */
 var elem = document.documentElement;
@@ -20,7 +31,7 @@ function openFullscreen() {
 }
 
 window.addEventListener("keydown", checkKeyPressed, false);
-
+/*sets the 'F' key to toggle full screen. NOTE: pressing the same key does not close full screen...you must press 'esc'.*/
 function checkKeyPressed(evt) {
     evt.keyCode = 70
     if (evt.keyCode == "70") {
@@ -32,11 +43,11 @@ function checkKeyPressed(evt) {
 }
 
 
-
 /*----------------------------------------------------*/
 
 /* Time */
-
+/*creates a digital clock. Displays minutes and hours. Seconds are just to calculate when to change the minutes.*/
+//returns 24 hour time
 function startTime() {
     var today = new Date();
     var h = today.getHours();
@@ -44,13 +55,13 @@ function startTime() {
     var s = today.getSeconds();
     m = checkTime(m);
     s = checkTime(s);
-    var ampm = h >= 12 ? 'pm' : 'am';
-    h = h % 12;
+    var ampm = h >= 12 ? 'pm' : 'am'; //if the hour(24 hour time) is greater than 12, sets var ampm = pm, else = am.
+    h = h % 12; //divides 24 hour time to get 12 hour time.
     h = h ? h : 12; // the hour '0' should be '12'
     document.getElementById('clk').innerHTML =
-        h + ":" + m;
-    document.getElementById('ap').innerHTML = ampm;
-    var t = setTimeout(startTime, 500);
+        h + ":" + m; //displays h:m in html.
+    document.getElementById('ap').innerHTML = ampm; //displays am or pm in html.
+    var t = setTimeout(startTime, 500); //recalls startTime() ever 500 miliseconds(1/2 second);
 }
 
 function checkTime(i) {
@@ -60,6 +71,7 @@ function checkTime(i) {
     return i;
 }
 
+/*creates the hour for the hourly forcast*/
 function forcast_hour(add, id) {
     var today = new Date();
     var h = today.getHours() + add;
@@ -75,9 +87,9 @@ function forcast_hour(add, id) {
     document.getElementById(id).innerHTML = h + " " + ampm;
 }
 
-forcast_hour(2, 'time1');
-forcast_hour(4, 'time2');
-forcast_hour(6, 'time3');
+forcast_hour(2, 'time1'); //calls forcast_hour() and adds 2 hours to the time.
+forcast_hour(4, 'time2');//calls forcast_hour() and adds 4 hours to the time.
+forcast_hour(6, 'time3');//calls forcast_hour() and adds 4 hours to the time.
 
 
 /*-----------------------------------------------------*/
@@ -101,11 +113,9 @@ var x = setTimeout(getdate(), 3600000);
 /*---------------------------------------------------*/
 
 /*weather*/
-
-var weth_key = 'e265de32d5883ec3609745c6b02072b3'
-
+/* calling each item is a bit messy here. You could add arguments to the function and call the function with the hour forcast and icon image like shown with the stock API below...*/
 function getWeather() {
-    fetch("https://api.openweathermap.org/data/2.5/onecall?lat=44.72&lon=-96.28&units=imperial&appid=" + weth_key)
+    fetch("https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&units=imperial&appid=" + weth_key)
         .then(response => {
             return response.json();
         })
@@ -142,16 +152,15 @@ setInterval(getWeather, 60000);
 
 /*-------------------------------------------------------*/
 
-const Fin_key = "bt8q75f48v6ulu345cig"
-const AV_key = "FASLSWE4EQRXW4OT"
-
+/*Stocks*/
+//creates a scrolling list of chosen stock tickers with the days information.
 function getStock(symbol, id) {
     fetch("https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + symbol + "&apikey=" + AV_key)
         .then(response => {
             return response.json();
         })
         .then(data => {
-            /*console.log(data);*/
+            //console.log(data);
             symbol = data["Global Quote"]["01. symbol"]
             price = data["Global Quote"]["05. price"]
             price = Math.round(price * 100) / 100;
