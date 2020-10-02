@@ -6,11 +6,11 @@
 ---
 
 ## Getting Started
----
 ### Requirements
-git
-Node with npm
-Electron
+
+* git
+* Node with npm
+* Electron
 
 Run the following commands. If they do not retun a version number, install the packages bellow.
 
