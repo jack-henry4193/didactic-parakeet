@@ -23,6 +23,10 @@ npm -v
 ```sh
 npm install npm@latest -g
 ```
+Navigate to app folder:
+```sh
+npm install
+```
 
 ### Installation
 1. open a terminal and make a directory where you want the app files to be stored.
