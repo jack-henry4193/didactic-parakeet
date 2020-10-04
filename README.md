@@ -23,10 +23,6 @@ npm -v
 ```sh
 npm install npm@latest -g
 ```
-Navigate to app folder:
-```sh
-npm install
-```
 
 ### Installation
 1. open a terminal and make a directory where you want the app files to be stored.
@@ -34,8 +30,12 @@ npm install
 ```sh
 git clone https://github.com/terminalPoltergeist/didactic-parakeet.git
 ```
-3. Open app_config.js file and follow the directions.
-4. Run:
+3. Navigate to app folder:
+```sh
+npm install
+```
+4. Open app_config.js file and follow the directions.
+5. Run:
 ```sh
 npm start
 ```
