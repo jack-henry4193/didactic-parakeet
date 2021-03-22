@@ -36,7 +36,7 @@ function checkKeyPressed(evt) {
     evt.keyCode = 70
     if (evt.keyCode == "70") {
         openFullscreen();
-        document.getElementById('main').style.cursor = "none";
+        //document.getElementById('main').style.cursor = "none";
     } else {
 
     }
@@ -115,7 +115,7 @@ var x = setTimeout(getdate(), 3600000);
 /*weather*/
 /* calling each item is a bit messy here. You could add arguments to the function and call the function with the hour forcast and icon image like shown with the stock API below...*/
 function getWeather() {
-    fetch("https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&units=imperial&appid=" + weth_key)
+    fetch("https://api.openweathermap.org/data/2.5/onecall?lat="+"44.986656"+"&lon="+"-93.258133"+"&units=imperial&appid=" + weth_key)
         .then(response => {
             return response.json();
         })
